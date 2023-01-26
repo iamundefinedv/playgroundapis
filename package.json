@@ -1,0 +1,14 @@
+{
+  "name": "playgroundapis",
+  "version": "1.0.0",
+  "description": "the backend api for playgroundapis",
+  "main": "server.js",
+  "repository": "https://github.com/iamundefinedv/playgroundapis",
+  "author": "iamundefinedv",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0"
+  }
+}
