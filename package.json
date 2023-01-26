@@ -7,7 +7,12 @@
   "author": "iamundefinedv",
   "license": "MIT",
   "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.9.0"
   }
