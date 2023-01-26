@@ -8,6 +8,11 @@ dotenv.config();
 const PORT = process.env.PORT || 19876;
 const MONGODB_CONNECTION_URL = process.env.MONGODB_CONNECTION_URL || 'something went wrong bud';
 
+mongoose.set('strictQuery', false);
+mongoose.connect(MONGODB_CONNECTION_URL);
+
+mongoose.connection.once('open', () => console.log('MongoDB Successfully Connected'));
+
 // Import Routes
 import coffeeRouter from './api/coffee.js';
 
