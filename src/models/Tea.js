@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose";
 
-// Create schema for Coffee Resource
+// Create a schema for the Tea resource
 const schema = new Schema({
     title: {
         type: String,
@@ -21,5 +21,5 @@ const schema = new Schema({
     }
 });
 
-// Export a Model based on the above schema
-export default model('Coffee', schema);
+// Export a model based on the above schema
+export default model('Tea', schema);
