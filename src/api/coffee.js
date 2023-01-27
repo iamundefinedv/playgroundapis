@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Create a Coffee
 router.post('/', async (req, res) => {
 
     const content = req.body;
@@ -30,5 +31,37 @@ router.post('/', async (req, res) => {
     }
 
 });
+
+// Update a Coffee - must be authenticated, keep unaccessable for now.
+router.put('/:id', async (req, res) => {
+    const content = req.body;
+    const id = req.params.id;
+
+    try {
+        await Coffee.findByIdAndUpdate(id, content);
+        res.status(200).end();
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).send(err.message);
+    }
+});
+
+// Delete a Coffee - must be authenticated or keep unaccessable
+router.delete('/:id', async (req, res) => {
+    // return res.status(418).send('☕️');
+    const id = req.params.id;
+
+    if (!id) return res.status(500).send('No ID');
+
+    try {
+        await Coffee.deleteOne({ _id: id });
+        res.status(204).end();
+    } catch (err) {
+        console.log(err);
+        res.status(500).send(err.message);
+    }
+});
+
 
 export default router;
