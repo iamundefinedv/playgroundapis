@@ -2,6 +2,7 @@
 import * as dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 // Setup dotenv and .env files
 dotenv.config();
@@ -23,6 +24,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // General Routes
 app.get('/', (req, res) => res.send('home page, head to /api for more information'));
