@@ -14,7 +14,7 @@ mongoose.connect(MONGODB_CONNECTION_URL);
 mongoose.connection.once('open', () => console.log('MongoDB Successfully Connected'));
 
 // Import Routes
-import coffeeRouter from './api/coffee.js';
+import coffeeRouter from './routes/coffee.js';
 
 const app = express();
 
