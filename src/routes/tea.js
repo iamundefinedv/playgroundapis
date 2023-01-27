@@ -1,11 +1,13 @@
 import { Router } from "express";
 import Tea from "../models/Tea.js";
+import isAuthenticated from "../middleware/authenticated.js";
+
 
 // Create a express router
 const router = Router();
 
 // GET - Return a list of all tea's 
-router.get('/', async (req, res) => {
+router.get('/', isAuthenticated, async (req, res) => {
     try {
         // Find all Tea's in the database
         const alltea = await Tea.find();
@@ -18,7 +20,7 @@ router.get('/', async (req, res) => {
 });
 
 // POST - Create a tea
-router.post('/', async (req, res) => {
+router.post('/', isAuthenticated, async (req, res) => {
 
     // Get the content from the request body
     const content = req.body;
@@ -42,7 +44,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT - Update a tea - must be authenticated, keep unaccessable for now.
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAuthenticated, async (req, res) => {
     // Get the content from the request body
     const content = req.body;
     // Get the tea Id from the Url Paramaters
@@ -61,7 +63,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE - Delete a tea - must be authenticated or keep unaccessable
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
     // return res.status(418).send('☕️');
     const id = req.params.id;
 

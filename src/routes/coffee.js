@@ -1,15 +1,13 @@
 import { Router } from "express";
 import Coffee from "../models/Coffee.js";
-import jwt from 'jsonwebtoken';
-import isAuthenticated from "./authenticated.js";
+import isAuthenticated from "../middleware/authenticated.js";
 
 
 // Create a express router
 const router = Router();
 
 // GET - Return a list of all coffee's 
-router.get('/', async (req, res) => {
-    isAuthenticated(req, res);
+router.get('/', isAuthenticated, async (req, res) => {
     try {
         // Find all coffee's in the database
         const allCoffee = await Coffee.find();
@@ -22,9 +20,8 @@ router.get('/', async (req, res) => {
 });
 
 // POST - Create a Coffee
-router.post('/', async (req, res) => {
+router.post('/', isAuthenticated, async (req, res) => {
 
-    isAuthenticated(req, res);
     // Get the content from the request body
     const content = req.body;
 
@@ -47,7 +44,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT - Update a Coffee - must be authenticated, keep unaccessable for now.
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAuthenticated, async (req, res) => {
     // Get the content from the request body
     const content = req.body;
     // Get the Coffee Id from the Url Paramaters
@@ -66,7 +63,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE - Delete a Coffee - must be authenticated or keep unaccessable
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
     // return res.status(418).send('☕️');
     const id = req.params.id;
 
