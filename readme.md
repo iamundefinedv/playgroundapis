@@ -1,6 +1,6 @@
 # 🌐 PlaygroundAPIs.net Backend API 🌐
 
-A simple REST API in Node.js with multiple different endpoints for all kinds of random data.
+A simple REST API in Node.js with multiple different endpoints for all kinds of random data. Everything is currently locked behind JWT authentication while in development.
 
 ## Quick Start
 
@@ -30,6 +30,8 @@ yarn dev
 
 | Methods     | Urls             |Description                |
 | ----------- | ---------------- | ------------------------- |
+| POST      |   /auth/signup |Authenticate new user|
+| POST      |   /api/signin |Authenticate existing user|
 | GET         | /api/coffee    |   Get a list of Coffees          |
 | GET         | /api/coffee/id |Get a specific Coffee    |
 | POST        | /api/coffee    |Create a new Coffee      |
