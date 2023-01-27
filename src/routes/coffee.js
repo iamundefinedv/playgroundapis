@@ -1,11 +1,15 @@
 import { Router } from "express";
 import Coffee from "../models/Coffee.js";
+import jwt from 'jsonwebtoken';
+import isAuthenticated from "./authenticated.js";
+
 
 // Create a express router
 const router = Router();
 
 // GET - Return a list of all coffee's 
 router.get('/', async (req, res) => {
+    isAuthenticated(req, res);
     try {
         // Find all coffee's in the database
         const allCoffee = await Coffee.find();
@@ -20,6 +24,7 @@ router.get('/', async (req, res) => {
 // POST - Create a Coffee
 router.post('/', async (req, res) => {
 
+    isAuthenticated(req, res);
     // Get the content from the request body
     const content = req.body;
 

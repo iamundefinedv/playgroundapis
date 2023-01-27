@@ -16,6 +16,7 @@ mongoose.connection.once('open', () => console.log('MongoDB Successfully Connect
 // Import Routes
 import coffeeRouter from './routes/coffee.js';
 import teaRouter from './routes/tea.js';
+import authRouter from './routes/auth.js';
 
 // Initialize app
 const app = express();
@@ -26,6 +27,8 @@ app.use(express.json());
 // General Routes
 app.get('/', (req, res) => res.send('home page, head to /api for more information'));
 
+// Auth Routes
+app.use('/auth', authRouter);
 // API Routes
 app.use('/api/coffee', coffeeRouter);
 app.use('/api/tea', teaRouter);
