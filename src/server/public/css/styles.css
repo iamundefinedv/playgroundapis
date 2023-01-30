@@ -1,0 +1,29 @@
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: rgba(19, 21, 23);
+}
+
+.image_preview_container {
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 50%, transparent 100%);
+    -webkit-mask-size: 100vh;
+}
+
+.hero-image {
+    background: -webkit-linear-gradient(rgba(33, 37, 41, 1.0), rgba(19, 21, 23, 0.8)), url(/img/playgroundapi.png);
+    background-size: cover;
+}
+
+#navbarHeader {
+    background-color: rgba(29, 38, 113, 0.8) !important;
+}
+
+#navbar .bg-dark {
+    background-color: #212529 !important;
+}
+
+.card img {
+    height: 15rem;
+}
