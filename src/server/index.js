@@ -22,6 +22,7 @@ mongoose.connection.once('open', () => console.log('MongoDB Successfully Connect
 import coffeeRouter from './routes/coffee.js';
 import teaRouter from './routes/tea.js';
 import authRouter from './routes/auth.js';
+import pagesRouter from './routes/pages.js';
 
 // Initialize app
 const app = express();
@@ -36,8 +37,16 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(cors());
 
+const apiRoutes = ['coffee', 'tea', 'dogs'];
+
 // General Routes
-app.get('/', (req, res) => res.render('pages/index'));
+app.get('/', (req, res) => {
+    const random = Math.floor(Math.random() * apiRoutes.length);
+    const randomRoute = apiRoutes[random];
+    res.render('pages/index', { randomRoute });
+});
+app.use('/pages', pagesRouter);
+
 
 // Auth Routes
 app.use('/auth', authRouter);

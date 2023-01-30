@@ -21,8 +21,8 @@
                   personal projects, or for new developers learning how to interact with backend data using REST APIs.
                 </p>
                 <p>
-                  <a href="#" class="btn btn-danger my-2">Show Me A Random API</a>
-                  <a href="#" class="btn btn-secondary my-2">Docs</a>
+                  <a href="/pages/<%= randomRoute %>" class="btn btn-danger my-2">Show Me A Random API</a>
+                  <a href="#" class="btn btn-info my-2">Docs</a>
                 </p>
               </div>
             </div>
@@ -36,51 +36,42 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
               <div class="col">
                 <div class="card bg-dark text-white shadow-sm">
-                 <img src="https://cdn.cnn.com/cnnnext/dam/assets/150929101049-black-coffee-stock-super-tease.jpg" alt="">
+                  <img class="hover-zoom" src="https://cdn.cnn.com/cnnnext/dam/assets/150929101049-black-coffee-stock-super-tease.jpg" alt="">
                   <div class="card-body">
                     <p class="card-text">Looking for a coffee api? I got you covered.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
-                      <small class="text-muted">9 mins</small>
+                    <div class="d-flex justify-content-between align-items-center gap-2">
+                      <a type="button" href="/pages/coffee" class="btn btn-outline-danger">View Resource</a>
+                      <a type="button" href="#" class="btn btn-outline-info">Copy URL</a>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col">
                 <div class="card bg-dark text-white shadow-sm">
-                 <img src="https://imageio.forbes.com/specials-images/imageserve/5f6c061ca71799093f55fd02/0x0.jpg?format=jpg&crop=5023,3350,x0,y0,safe&width=1200" alt="">
+                  <img src="https://imageio.forbes.com/specials-images/imageserve/5f6c061ca71799093f55fd02/0x0.jpg?format=jpg&crop=5023,3350,x0,y0,safe&width=1200" alt="">
                   <div class="card-body">
                     <p class="card-text">Information on tea! Probably returns 418 I'm a Teapot</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
-                      <small class="text-muted">9 mins</small>
+                    <div class="d-flex justify-content-between align-items-center gap-2">
+                      <a type="button" href="/pages/tea" class="btn btn-outline-danger">View Resource</a>
+                      <a type="button" href="#" class="btn btn-outline-info">Copy URL</a>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col">
                 <div class="card bg-dark text-white shadow-sm">
-                 <img src="https://paradepets.com/.image/t_share/MTkxMzY1Nzg4NjczMzIwNTQ2/cutest-dog-breeds-jpg.jpg" alt="">
+                  <img src="https://paradepets.com/.image/t_share/MTkxMzY1Nzg4NjczMzIwNTQ2/cutest-dog-breeds-jpg.jpg" alt="">
                   <div class="card-body">
-                    <p class="card-text">Information on tea! Probably returns 418 I'm a Teapot</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
-                      <small class="text-muted">9 mins</small>
+                    <p class="card-text">As many dog breads as I could find - Enjoy.</p>
+                    <div class="d-flex justify-content-between align-items-center gap-2">
+                      <a type="button" href="/pages/dogs" class="btn btn-outline-danger">View Resource</a>
+                      <a type="button" href="#" class="btn btn-outline-info">Copy URL</a>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
           </div>
-        </div>
     </main>
     <%- include('../partials/footer'); %>
   </div>

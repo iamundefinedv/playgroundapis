@@ -7,7 +7,7 @@ import isAuthenticated from "../middleware/authenticated.js";
 const router = Router();
 
 // GET - Return a list of all tea's 
-router.get('/', isAuthenticated, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         // Find all Tea's in the database
         const alltea = await Tea.find();
