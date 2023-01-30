@@ -3,7 +3,11 @@ import * as dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
 
+const __dirname = path.dirname(__filename);
 // Setup dotenv and .env files
 dotenv.config();
 const PORT = process.env.PORT || 19876;
@@ -22,12 +26,18 @@ import authRouter from './routes/auth.js';
 // Initialize app
 const app = express();
 
+// EJS View Engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../views'));
+
+app.use(express.static(__dirname + '/public'));
+
 // Middleware
 app.use(express.json());
 app.use(cors());
 
 // General Routes
-app.get('/', (req, res) => res.send('home page, head to /api for more information'));
+app.get('/', (req, res) => res.render('pages/index'));
 
 // Auth Routes
 app.use('/auth', authRouter);
