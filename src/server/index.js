@@ -3,7 +3,11 @@ import * as dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
 
+const __dirname = path.dirname(__filename);
 // Setup dotenv and .env files
 dotenv.config();
 const PORT = process.env.PORT || 19876;
@@ -18,16 +22,31 @@ mongoose.connection.once('open', () => console.log('MongoDB Successfully Connect
 import coffeeRouter from './routes/coffee.js';
 import teaRouter from './routes/tea.js';
 import authRouter from './routes/auth.js';
+import pagesRouter from './routes/pages.js';
 
 // Initialize app
 const app = express();
+
+// EJS View Engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../views'));
+
+app.use(express.static(__dirname + '/public'));
 
 // Middleware
 app.use(express.json());
 app.use(cors());
 
+const apiRoutes = ['coffee', 'tea', 'dogs'];
+
 // General Routes
-app.get('/', (req, res) => res.send('home page, head to /api for more information'));
+app.get('/', (req, res) => {
+    const random = Math.floor(Math.random() * apiRoutes.length);
+    const randomRoute = apiRoutes[random];
+    res.render('pages/index', { randomRoute });
+});
+app.use('/pages', pagesRouter);
+
 
 // Auth Routes
 app.use('/auth', authRouter);

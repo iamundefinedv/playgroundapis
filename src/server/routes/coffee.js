@@ -7,7 +7,7 @@ import isAuthenticated from "../middleware/authenticated.js";
 const router = Router();
 
 // GET - Return a list of all coffee's 
-router.get('/', isAuthenticated, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         // Find all coffee's in the database
         const allCoffee = await Coffee.find();
